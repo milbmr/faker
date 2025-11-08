@@ -1,7 +1,7 @@
 package com.github.faker.matchers;
 
 import org.hamcrest.Description;
-import org.hamcrest.Factory;
+//import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
@@ -23,7 +23,7 @@ public class MatchesRegularExpression extends TypeSafeMatcher<String> {
         description.appendText("to match the regular expression " + regularExpression);
     }
 
-    @Factory
+    //@Factory
     public static <T> Matcher<String> matchesRegularExpression(String regularExpression) {
         return new MatchesRegularExpression(regularExpression);
     }

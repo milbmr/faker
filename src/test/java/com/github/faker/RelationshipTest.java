@@ -2,11 +2,11 @@ package com.github.faker;
 
 import static org.hamcrest.Matchers.isEmptyOrNullString;
 import static org.hamcrest.core.IsNot.not;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.when;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.lang.reflect.InvocationTargetException;
@@ -15,7 +15,7 @@ public class RelationshipTest extends AbstractFakerTest {
 
     private Faker mockFaker;
 
-    @Before
+    @BeforeEach
     public void before() {
         super.before();
         mockFaker = Mockito.mock(Faker.class);

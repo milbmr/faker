@@ -1,8 +1,8 @@
 package com.github.faker;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import static com.github.faker.matchers.MatchesRegularExpression.matchesRegularExpression;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class BasketballTest extends AbstractFakerTest {

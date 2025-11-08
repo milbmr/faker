@@ -4,8 +4,8 @@ import com.github.faker.AbstractFakerTest;
 import com.github.faker.Faker;
 import com.github.faker.Superhero;
 import org.hamcrest.core.Is;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -19,7 +19,7 @@ import java.util.Locale;
 
 import static com.github.faker.matchers.MatchesRegularExpression.matchesRegularExpression;
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.fail;
 import static org.mockito.Mockito.*;
 
@@ -33,7 +33,7 @@ public class FakeValuesServiceTest extends AbstractFakerTest {
 
     private FakeValuesService fakeValuesService;
 
-    @Before
+    @BeforeEach
     public void before() {
         super.before();
         MockitoAnnotations.initMocks(this);

@@ -1,6 +1,6 @@
 package com.github.faker;
 
-import com.github.javafaker.idnumbers.EnIdNumber;
+import com.github.faker.idnumbers.EnIdNumber;
 import com.github.faker.idnumbers.SvSEIdNumber;
 
 public class IdNumber {

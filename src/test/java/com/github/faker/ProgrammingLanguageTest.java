@@ -1,9 +1,9 @@
 package com.github.faker;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static com.github.faker.matchers.MatchesRegularExpression.matchesRegularExpression;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ProgrammingLanguageTest extends AbstractFakerTest {
 

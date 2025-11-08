@@ -1,20 +1,20 @@
 package com.github.faker;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.Matchers.isIn;
 import static org.hamcrest.Matchers.isOneOf;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class OptionsTest extends AbstractFakerTest {
 
     private String[] options;
 
-    @Before
+    @BeforeEach
     public void setupOptions() {
         options = new String[]{"A", "B", "C"};
     }

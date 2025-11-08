@@ -1,7 +1,7 @@
 package com.github.faker.service;
 
 import com.github.faker.AbstractFakerTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -13,7 +13,7 @@ import static com.github.faker.matchers.MatchesRegularExpression.matchesRegularE
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.core.CombinableMatcher.both;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * @author pmiklos

@@ -1,7 +1,7 @@
 package com.github.faker;
 
 import com.github.faker.repeating.Repeat;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static com.github.faker.matchers.IsStringWithContents.isStringWithContents;
 import static com.github.faker.matchers.MatchesRegularExpression.matchesRegularExpression;

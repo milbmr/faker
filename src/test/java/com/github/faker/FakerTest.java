@@ -1,14 +1,14 @@
 package com.github.faker;
 
 import com.github.faker.repeating.Repeat;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Locale;
 import java.util.Random;
 
 import static com.github.faker.matchers.MatchesRegularExpression.matchesRegularExpression;
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class FakerTest extends AbstractFakerTest {
 

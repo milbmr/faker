@@ -1,12 +1,12 @@
 package com.github.faker.integration;
 
 import com.github.faker.Faker;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Locale;
 
 import static com.github.faker.matchers.MatchesRegularExpression.matchesRegularExpression;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class Issue194SlashFormatRegexIT {
 
