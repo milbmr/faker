@@ -3,7 +3,8 @@ package com.github.faker;
 import org.junit.jupiter.api.Test;
 
 import static com.github.faker.matchers.MatchesRegularExpression.matchesRegularExpression;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class BojackHorsemanTest extends AbstractFakerTest {
 

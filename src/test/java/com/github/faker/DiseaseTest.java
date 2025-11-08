@@ -1,11 +1,12 @@
 package com.github.faker;
 
-import com.github.faker.repeating.Repeat;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import static com.github.faker.matchers.IsStringWithContents.isStringWithContents;
 import static com.github.faker.matchers.MatchesRegularExpression.matchesRegularExpression;
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DiseaseTest extends AbstractFakerTest {
     @Test
@@ -64,43 +65,37 @@ public class DiseaseTest extends AbstractFakerTest {
         assertTrue(isExist);
     }
 
-    @Test
-    @Repeat(times = 10000)
+    @RepeatedTest(10000)
     public void testNeurologyWith10000Times() {
         Faker faker = new Faker();
         assertThat(faker.disease().neurology(), isStringWithContents());
     }
 
-    @Test
-    @Repeat(times = 10000)
+    @RepeatedTest(10000)
     public void testSurgeryWith10000Times() {
         Faker faker = new Faker();
         assertThat(faker.disease().surgery(), isStringWithContents());
     }
 
-    @Test
-    @Repeat(times = 10000)
+    @RepeatedTest(10000)
     public void testPaediatricsWith10000Times() {
         Faker faker = new Faker();
         assertThat(faker.disease().paediatrics(), isStringWithContents());
     }
 
-    @Test
-    @Repeat(times = 10000)
+    @RepeatedTest(10000)
     public void testGynecologyAndObstetricsWith10000Times() {
         Faker faker = new Faker();
         assertThat(faker.disease().gynecologyAndObstetrics(), isStringWithContents());
     }
 
-    @Test
-    @Repeat(times = 10000)
+    @RepeatedTest(10000)
     public void testOphthalmologyAndOtorhinolaryngologyWith10000Times() {
         Faker faker = new Faker();
         assertThat(faker.disease().ophthalmologyAndOtorhinolaryngology(), isStringWithContents());
     }
 
-    @Test
-    @Repeat(times = 10000)
+    @RepeatedTest(10000)
     public void testDermatoloryWith10000Times() {
         Faker faker = new Faker();
         assertThat(faker.disease().dermatolory(), isStringWithContents());

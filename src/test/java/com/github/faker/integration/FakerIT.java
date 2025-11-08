@@ -1,12 +1,11 @@
 package com.github.faker.integration;
 
 import com.github.faker.Faker;
-import com.google.common.collect.Maps;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,12 +25,11 @@ import static org.reflections.ReflectionUtils.*;
  * and that methods return values. The unit tests should ensure what the values returned
  * are correct. These tests just ensure that the methods can be invoked.
  */
-@RunWith(value = Parameterized.class)
 public class FakerIT {
 
     private static final Logger logger = LoggerFactory.getLogger(FakerIT.class);
-    private final Locale locale;
-    private final Faker faker;
+    private Locale locale;
+    private Faker faker;
 
     /**
      * a collection of Locales -> Exceptions.
@@ -39,7 +37,7 @@ public class FakerIT {
      * methods return a non blank string. But pt city_prefix is blank ,but the test shouldn't fail. So we add put
      * exceptions like this into this collection.
      */
-    private static final Map<Locale, List<String>> exceptions = Maps.newHashMap();
+    private static final Map<Locale, List<String>> exceptions = new HashMap<>();
     static {
         // 'it' has an empty suffix list so it never returns a value
         exceptions.put(new Locale("it"), Arrays.asList("Name.suffix"));
@@ -54,7 +52,9 @@ public class FakerIT {
         exceptions.put(new Locale("pt","Br", "x2"), Arrays.asList("Address.cityPrefix", "Address.citySuffix"));
     }
 
-    public FakerIT(Locale locale, Random random) {
+    @ParameterizedTest
+    @MethodSource("data")
+    public void FakerITParams(final Locale locale, final Random random) {
         this.locale = locale;
         if (locale != null && random != null) {
             faker = new Faker(locale, random);
@@ -67,7 +67,6 @@ public class FakerIT {
         }
     }
 
-    @Parameterized.Parameters(name = "testing locale {0} and random {1}")
     public static Collection<Object[]> data() {
         Object[][] data = new Object[][]{
                 {Locale.ENGLISH, new Random()},

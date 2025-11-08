@@ -1,6 +1,6 @@
 package com.github.faker;
 
-import com.github.faker.repeating.Repeat;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import java.util.Locale;
@@ -134,8 +134,7 @@ public class FakerTest extends AbstractFakerTest {
         assertThat(faker.expression("#{color.name}"), matchesRegularExpression("[a-z\\s]+"));
     }
 
-    @Test
-    @Repeat(times = 100)
+    @RepeatedTest(100)
     public void numberBetweenRepeated() {
         assertThat(faker.expression("#{number.number_between '1','10'}"), matchesRegularExpression("[1-9]"));
     }

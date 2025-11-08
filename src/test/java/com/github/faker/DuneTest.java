@@ -1,6 +1,6 @@
 package com.github.faker;
 
-import com.github.faker.repeating.Repeat;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import static com.github.faker.matchers.MatchesRegularExpression.matchesRegularExpression;
@@ -28,8 +28,7 @@ public class DuneTest extends AbstractFakerTest {
         assertThat(faker.dune().quote(), matchesRegularExpression("\\P{Cc}+"));
     }
 
-    @Test
-    @Repeat(times = 10000)
+    @RepeatedTest(10000)
     public void randomQuote() {
         assertThat(
                 faker.dune().quote(faker.options().option(Dune.Quote.class)),
@@ -41,8 +40,7 @@ public class DuneTest extends AbstractFakerTest {
         assertThat(faker.dune().saying(), matchesRegularExpression("\\P{Cc}+"));
     }
 
-    @Test
-    @Repeat(times = 10000)
+    @RepeatedTest(10000)
     public void randomSaying() {
         assertThat(
                 faker.dune().saying(faker.options().option(Dune.Saying.class)),

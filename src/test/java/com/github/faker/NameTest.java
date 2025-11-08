@@ -1,6 +1,6 @@
 package com.github.faker;
 
-import com.github.faker.repeating.Repeat;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import static com.github.faker.matchers.MatchesRegularExpression.matchesRegularExpression;
@@ -23,7 +23,7 @@ public class NameTest  extends AbstractFakerTest{
         assertThat(faker.name().nameWithMiddle(), matchesRegularExpression("([\\w']+\\.?( )?){3,4}"));
     }
 
-    @Test @Repeat(times = 10)
+    @RepeatedTest(10)
     public void testNameWithMiddleDoesNotHaveRepeatedName() {
         String nameWithMiddle = faker.name().nameWithMiddle();
         String[] splitNames = nameWithMiddle.split(" ");

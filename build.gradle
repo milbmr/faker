@@ -19,6 +19,8 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation("org.hamcrest:hamcrest")
     testImplementation("org.mockito:mockito-core")
+    testImplementation("commons-validator:commons-validator:1.10.0")
+    testImplementation("ch.qos.logback:logback-classic")
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 

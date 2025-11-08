@@ -1,12 +1,11 @@
 package com.github.faker;
 
-import com.github.faker.repeating.Repeat;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
+import org.junit.jupiter.api.RepeatedTest;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -33,7 +32,7 @@ public class InternetTest extends AbstractFakerTest {
 
     @Test
     public void testSafeEmailAddress() {
-        List<String> emails = Lists.newArrayList();
+        List<String> emails = new ArrayList<>();
         for (int i=0;i<100;i++) {
             String emailAddress = faker.internet().safeEmailAddress();
             assertThat(EmailValidator.getInstance().isValid(emailAddress), is(true));
@@ -47,7 +46,7 @@ public class InternetTest extends AbstractFakerTest {
 
     @Test
     public void testSafeEmailAddressWithLocalPartParameter() {
-        List<String> emails = Lists.newArrayList();
+        List<String> emails = new ArrayList<>();
         for (int i=0;i<100;i++) {
             String emailAddress = faker.internet().safeEmailAddress("john");
             assertThat(emailAddress, startsWith("john@"));
@@ -252,26 +251,22 @@ public class InternetTest extends AbstractFakerTest {
         }
     }
 
-    @Test
-    @Repeat(times=10)
+    @RepeatedTest(10)
     public void testSlugWithParams() {
-        assertThat(faker.internet().slug(ImmutableList.of("a", "b"), "-"), matchesRegularExpression("[a-zA-Z]+\\-[a-zA-Z]+"));
+        assertThat(faker.internet().slug(List.of("a", "b"), "-"), matchesRegularExpression("[a-zA-Z]+\\-[a-zA-Z]+"));
     }
 
-    @Test
-    @Repeat(times=10)
+    @RepeatedTest(10)
     public void testSlug() {
         assertThat(faker.internet().slug(), matchesRegularExpression("[a-zA-Z]+\\_[a-zA-Z]+"));
     }
 
-    @Test
-    @Repeat(times=10)
+    @RepeatedTest(10)
     public void testUuid() {
         assertThat(faker.internet().uuid(), matchesRegularExpression("^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"));
     }
 
-    @Test
-    @Repeat(times=100)
+    @RepeatedTest(100)
     public void testFarsiIDNs() {
         // in this case, we're just making sure Farsi doesn't blow up.
         // there have been issues with Farsi not being produced.

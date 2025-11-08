@@ -2,8 +2,8 @@ package com.github.faker.service;
 
 import com.github.faker.AbstractFakerTest;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -19,16 +19,16 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * @author pmiklos
  *
  */
-@RunWith(Parameterized.class)
 public class RandomServiceTest extends AbstractFakerTest {
 
     private RandomService randomService;
 
-    public RandomServiceTest(String ignoredTitle, RandomService service) {
+    @ParameterizedTest
+    @MethodSource("data")
+    public void RandomServiceTestParams(String ignoredTitle, RandomService service) {
         this.randomService = service;
     }
 
-    @Parameterized.Parameters(name = "Created via {0}")
     public static Collection<Object[]> data() {
         Object[][] data = new Object[][]{
                 {"RandomService(Random)", new RandomService(new Random())},
