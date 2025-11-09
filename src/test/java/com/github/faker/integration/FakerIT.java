@@ -3,7 +3,9 @@ package com.github.faker.integration;
 import com.github.faker.Faker;
 
 import org.apache.commons.lang3.StringUtils;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.slf4j.Logger;
@@ -25,6 +27,7 @@ import static org.reflections.ReflectionUtils.*;
  * and that methods return values. The unit tests should ensure what the values returned
  * are correct. These tests just ensure that the methods can be invoked.
  */
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class FakerIT {
 
     private static final Logger logger = LoggerFactory.getLogger(FakerIT.class);
@@ -52,9 +55,7 @@ public class FakerIT {
         exceptions.put(new Locale("pt","Br", "x2"), Arrays.asList("Address.cityPrefix", "Address.citySuffix"));
     }
 
-    @ParameterizedTest
-    @MethodSource("data")
-    public void FakerITParams(final Locale locale, final Random random) {
+    public void params(final Locale locale, final Random random) {
         this.locale = locale;
         if (locale != null && random != null) {
             faker = new Faker(locale, random);
@@ -91,8 +92,10 @@ public class FakerIT {
         return allData;
     }
 
-    @Test
-    public void testAllFakerMethodsThatReturnStrings() throws Exception {
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testAllFakerMethodsThatReturnStrings(final Locale locale, final Random random) throws Exception {
+        params(locale, random);
         testAllMethodsThatReturnStringsActuallyReturnStrings(faker);
         testAllMethodsThatReturnStringsActuallyReturnStrings(faker.ancient());
         testAllMethodsThatReturnStringsActuallyReturnStrings(faker.address());
@@ -205,8 +208,10 @@ public class FakerIT {
         return classDotMethod.contains(object.getClass().getSimpleName() + "." + method.getName());
     }
 
-    @Test
-    public void testExceptionsNotCoveredInAboveTest() {
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testExceptionsNotCoveredInAboveTest(final Locale locale, final Random random) {
+        params(locale, random);
         assertThat(faker.bothify("####???"), is(notNullValue()));
         assertThat(faker.letterify("????"), is(notNullValue()));
         assertThat(faker.numerify("####"), is(notNullValue()));

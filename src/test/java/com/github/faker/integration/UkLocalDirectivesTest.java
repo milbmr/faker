@@ -1,10 +1,10 @@
 package com.github.faker.integration;
 
 import com.github.faker.Faker;
-import com.google.common.collect.Lists;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import static org.hamcrest.Matchers.is;
@@ -29,8 +29,8 @@ public class UkLocalDirectivesTest {
 
         final String streetName = new Faker(uk).address().streetName();
 
-        final ArrayList<String> masc = Lists.newArrayList("пр.", "проспект", "пров.", "провулок");
-        final ArrayList<String> fem = Lists.newArrayList("вул.", "вулиця", "пл.", "площа");
+        final ArrayList<String> masc = new ArrayList<>(List.of("пр.", "проспект", "пров.", "провулок"));
+        final ArrayList<String> fem = new ArrayList<>(List.of("вул.", "вулиця", "пл.", "площа"));
         
         boolean startsWithMascPrefix = false,
                 startsWithFemPrefix = false;

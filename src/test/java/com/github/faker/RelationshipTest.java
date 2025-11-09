@@ -4,6 +4,7 @@ import static org.hamcrest.Matchers.isEmptyOrNullString;
 import static org.hamcrest.core.IsNot.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -56,28 +57,36 @@ public class RelationshipTest extends AbstractFakerTest {
         assertThat(faker.relationships().sibling(), not(isEmptyOrNullString()));
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test
     public void anyWithIllegalArgumentExceptionThrown() {
-        when(mockFaker.random()).thenThrow(new IllegalArgumentException());
-        new Relationships(mockFaker).any();
+        assertThrows(RuntimeException.class, () -> {
+            when(mockFaker.random()).thenThrow(new IllegalArgumentException());
+            new Relationships(mockFaker).any();
+        });
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test
     public void anyWithSecurityExceptionThrown() {
-        when(mockFaker.random()).thenThrow(new SecurityException());
-        new Relationships(mockFaker).any();
+        assertThrows(RuntimeException.class, () -> {
+            when(mockFaker.random()).thenThrow(new SecurityException());
+            new Relationships(mockFaker).any();
+        });
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test
     public void anyWithIllegalAccessExceptionThrown() {
-        when(mockFaker.random()).thenThrow(new IllegalAccessException());
-        new Relationships(mockFaker).any();
+        assertThrows(RuntimeException.class, () -> {
+            when(mockFaker.random()).thenThrow(new IllegalAccessException());
+            new Relationships(mockFaker).any();
+        });
     }
 
-    @Test(expected = RuntimeException.class)
+    @Test
     public void anyWithInvocationTargetExceptionThrown() {
-        when(mockFaker.random()).thenThrow(new InvocationTargetException(new Exception()));
-        new Relationships(mockFaker).any();
+        assertThrows(RuntimeException.class, () -> {
+            when(mockFaker.random()).thenThrow(new InvocationTargetException(new Exception()));
+            new Relationships(mockFaker).any();
+        });
     }
 
 }

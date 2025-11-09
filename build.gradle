@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id'java'
 }
 
 group = 'com.github.milbmr.faker'
@@ -8,6 +8,13 @@ version = '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
 
 dependencies {
     implementation platform("org.springframework.boot:spring-boot-dependencies:3.5.5")
@@ -21,6 +28,7 @@ dependencies {
     testImplementation("org.mockito:mockito-core")
     testImplementation("commons-validator:commons-validator:1.10.0")
     testImplementation("ch.qos.logback:logback-classic")
+    testImplementation("org.reflections:reflections:0.10.2")
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
