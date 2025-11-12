@@ -4,22 +4,27 @@ plugins {
     id 'signing'
 }
 
-group = 'com.github.milbmr.faker'
-version = '1.0-SNAPSHOT'
+group = 'com.github.milbmr'
+version = '1.0'
 
 repositories {
     mavenCentral()
 }
 
 java {
-//    toolchain {
-//        languageVersion = JavaLanguageVersion.of(24)
-//    }
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 17
 }
 
 publishing {
     publications {
         maven(MavenPublication) {
+            artifactId = 'faker'
             from components.java
         }
     }
