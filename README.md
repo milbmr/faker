@@ -36,7 +36,7 @@ Easily create names, addresses, phone numbers, emails, dates, and thousands of o
 ### Gradle
 ```groovy
 dependencies {
-    implementation 'io.github:milbmr:1.0.0'
+    implementation 'io.github.milbmr:faker:1.0.0'
 }
 ```
 
@@ -44,6 +44,8 @@ dependencies {
 In your Java code
 
 ```java
+import com.github.faker.Faker;
+
 Faker faker = new Faker();
 
 String name = faker.name().fullName(); // Miss Samanta Schmidt
