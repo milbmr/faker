@@ -1,6 +1,7 @@
 # Java Faker (Modern Fork)
 
-[![Maven Status](https://img.shields.io/maven-central/v/io.github.milbmr/faker/badge.svg?style=flat)](http://mvnrepository.com/artifact/io.github.milbmr/faker)
+[![Maven Status](https://img.shields.io/maven-central/v/io.github.milbmr/faker?style=flat&color=green
+)](http://mvnrepository.com/artifact/io.github.milbmr/faker)
 [![License: Apache](http://img.shields.io/:license-apache-green.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
 A modern, maintained fork of the original [`java-faker`](https://github.com/DiUS/java-faker) library — now updated for **Java 17+**, Gradle builds, and active maintenance.
