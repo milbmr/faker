@@ -17,12 +17,12 @@ public class Name {
     /**
      * <p>
      *      A multipart name composed of an optional prefix, a firstname and a lastname
-     *      or other possible variances based on locale.  Examples:
+     *      or other possible variances based on locale.  Examples:</p>
      *      <ul>
      *          <li>James Jones Jr.</li>
      *          <li>Julie Johnson</li>
      *      </ul>
-     * </p>
+     *
      * @return a random name with given and family names and an optional suffix.
      */
     public String name() {
@@ -33,13 +33,13 @@ public class Name {
      * <p>
      *      A multipart name composed of an optional prefix, a given and family name,
      *      another 'firstname' for the middle name and an optional suffix such as Jr. 
-     *      Examples:
+     *      Examples:</p>
      *      <ul>
      *          <li>Mrs. Ella Geraldine Fitzgerald</li>
      *          <li>Jason Tom Sawyer Jr.</li>
      *          <li>Helen Jessica Troy</li>
      *      </ul>
-     * </p>
+     *
      * @return a random name with a middle name component with optional prefix and suffix
      */
     public String nameWithMiddle() {
@@ -88,14 +88,14 @@ public class Name {
 
     /**
      * <p>
-     *     A three part title composed of a descriptor level and job.  Some examples are :
+     *     A three part title composed of a descriptor level and job.  Some examples are : </p>
      *     <ul>
      *         <li>(template) {descriptor} {level} {job}</li>
      *         <li>Lead Solutions Specialist</li>
      *         <li>National Marketing Manager</li>
      *         <li>Central Response Liaison</li>
      *     </ul>
-     * </p>
+     *
      * @return a random three part job title
      */
     public String title() {
@@ -107,14 +107,14 @@ public class Name {
 
     /**
      * <p>
-     *     A lowercase username composed of the first_name and last_name joined with a '.'. Some examples are:
+     *     A lowercase username composed of the first_name and last_name joined with a '.'. Some examples are:</p>
      *     <ul>
      *         <li>(template) {@link #firstName()}.{@link #lastName()}</li>
      *         <li>jim.jones</li>
      *         <li>jason.leigh</li>
      *         <li>tracy.jordan</li>
      *     </ul>
-     * </p>
+     *
      * @return a random two part user name.
      * @see Name#firstName() 
      * @see Name#lastName()

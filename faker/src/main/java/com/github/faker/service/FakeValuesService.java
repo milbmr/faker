@@ -35,19 +35,22 @@ public class FakeValuesService {
      * <p>
      * Resolves YAML file using the most specific path first based on language and country code.
      * 'en_US' would resolve in the following order:
+     * </p>
      * <ol>
      * <li>/en-US.yml</li>
      * <li>/en.yml</li>
      * </ol>
+     * <p>
      * The search is case-insensitive, so the following will all resolve correctly.  Also, either a hyphen or
      * an underscore can be used when constructing a {@link Locale} instance.  This is legacy behavior and not
      * condoned, but it will work.
+     * </p>
      * <ul>
      * <li>EN_US</li>
      * <li>En-Us</li>
      * <li>eN_uS</li>
      * </ul>
-     * </p>
+     *
      *
      * @param locale
      * @param randomService
@@ -202,8 +205,9 @@ public class FakeValuesService {
     }
 
     /**
-     * Returns a string with the '#' characters in the parameter replaced with random digits between 0-9 inclusive.
-     * <p/>
+     * <p>
+     *     Returns a string with the '#' characters in the parameter replaced with random digits between 0-9 inclusive.
+     * </p>
      * For example, the string "ABC##EFG" could be replaced with a string like "ABC99EFG".
      *
      * @param numberString
@@ -255,9 +259,9 @@ public class FakeValuesService {
     }
 
     /**
-     * Returns a string with the '?' characters in the parameter replaced with random alphabetic
-     * characters.
-     * <p/>
+     * <p>
+     *     Returns a string with the '?' characters in the parameter replaced with random alphabetic characters.
+     * </p>
      * For example, the string "12??34" could be replaced with a string like "12AB34".
      *
      * @param letterString
@@ -268,9 +272,10 @@ public class FakeValuesService {
     }
 
     /**
+     * <p>
      * Returns a string with the '?' characters in the parameter replaced with random alphabetic
      * characters.
-     * <p/>
+     * </p>
      * For example, the string "12??34" could be replaced with a string like "12AB34".
      *
      * @param letterString

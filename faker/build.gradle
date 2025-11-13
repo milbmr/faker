@@ -4,7 +4,7 @@ plugins {
     id 'signing'
 }
 
-group = 'com.github.milbmr'
+group = 'io.github.milbmr'
 version = '1.0'
 
 repositories {
@@ -15,10 +15,16 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(25)
     }
+    withJavadocJar()
+    withSourcesJar()
 }
 
 tasks.withType(JavaCompile).configureEach {
     options.release = 17
+}
+
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:all,-missing', '-quiet')
 }
 
 publishing {
@@ -26,8 +32,43 @@ publishing {
         maven(MavenPublication) {
             artifactId = 'faker'
             from components.java
+            pom {
+                name = 'Faker'
+                description = 'An up to date fork of the original java-faker you can use it in your project to generate fake data'
+                url = 'https://github.com/milbmr/faker'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'barlog'
+                        name = 'Miloud'
+                        email = 'miloamg@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/milbmr/faker.git'
+                    developerConnection = 'scm:git:ssh://github.com:milbmr/faker.git'
+                    url = 'https://github.com/milbmr/faker'
+                }
+            }
         }
     }
+
+    repositories {
+        maven {
+            name = "LocalMavenWithChecksums"
+            url = uri(layout.buildDirectory.dir("staging"))
+        }
+    }
+}
+
+signing {
+    useGpgCmd()
+    sign publishing.publications.maven
 }
 
 
